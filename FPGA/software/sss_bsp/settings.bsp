@@ -1,0 +1,3365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
+        <BspType>ucosii</BspType>
+        <BspVersion>default</BspVersion>
+        <BspGeneratedTimeStamp>2017/04/24 18:07:30</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1493024850240</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\cygwin\home\adwinying\FreeLwIP-Nios-II\FPGA\software\sss_bsp</BspGeneratedLocation>
+        <BspSettingsFile>settings.bsp</BspSettingsFile>
+        <SopcDesignFile>C:\cygwin\home\adwinying\FreeLwIP-Nios-II\FPGA\DE2_115_SOPC.sopcinfo</SopcDesignFile>
+        <JdiFile>default</JdiFile>
+        <Cpu>cpu</Cpu>
+        <SchemaVersion>1.9</SchemaVersion>
+        <Setting>
+                <SettingName>hal.sys_clk_timer</SettingName>
+                <Identifier>ALT_SYS_CLK</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>sys_clk_timer</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Slave descriptor of the system clock timer device. This device provides a periodic interrupt ("tick") and is typically required for RTOS use. This setting defines the value of ALT_SYS_CLK in system.h.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.timestamp_timer</SettingName>
+                <Identifier>ALT_TIMESTAMP_CLK</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Slave descriptor of timestamp timer device. This device is used by Altera HAL timestamp drivers for high-resolution time measurement. This setting defines the value of ALT_TIMESTAMP_CLK in system.h.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.max_file_descriptors</SettingName>
+                <Identifier>ALT_MAX_FD</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>32</Value>
+                <DefaultValue>32</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Determines the number of file descriptors statically allocated. This setting defines the value of ALT_MAX_FD in system.h.</Description>
+                <Restrictions>If hal.enable_lightweight_device_driver_api is true, there are no file descriptors so this setting is ignored. If hal.enable_lightweight_device_driver_api is false, this setting must be at least 4 because HAL needs a file descriptor for /dev/null, /dev/stdin, /dev/stdout, and /dev/stderr.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_instruction_related_exceptions_api</SettingName>
+                <Identifier>ALT_INCLUDE_INSTRUCTION_RELATED_EXCEPTION_API</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>true</Value>
+                <DefaultValue>false</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enables API for registering handlers to service instruction-related exceptions. Enabling this setting increases the size of the exception entry code.</Description>
+                <Restrictions>These exception types can be generated if various processor options are enabled, such as the MMU, MPU, or other advanced exception types.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>hal.linker.allow_code_at_reset</SettingName>
+                <Identifier>ALT_ALLOW_CODE_AT_RESET</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>none</DestinationFile>
+                <Description>Indicates if initialization code is allowed at the reset address. If true, defines the macro ALT_ALLOW_CODE_AT_RESET in linker.h.</Description>
+                <Restrictions>If true, defines the macro ALT_ALLOW_CODE_AT_RESET in linker.h. This setting is typically false if an external bootloader (e.g. flash bootloader) is present.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>hal.linker.enable_alt_load</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>none</DestinationFile>
+                <Description>Enables the alt_load() facility. The alt_load() facility copies sections from the .text memory into RAM. If true, this setting sets up the VMA/LMA of sections in linker.x to allow them to be loaded into the .text memory.</Description>
+                <Restrictions>This setting is typically false if an external bootloader (e.g. flash bootloader) is present.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>hal.linker.enable_alt_load_copy_rodata</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>none</DestinationFile>
+                <Description>Causes the alt_load() facility to copy the .rodata section. If true, this setting defines the macro ALT_LOAD_COPY_RODATA in linker.h.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>hal.linker.enable_alt_load_copy_rwdata</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>none</DestinationFile>
+                <Description>Causes the alt_load() facility to copy the .rwdata section. If true, this setting defines the macro ALT_LOAD_COPY_RWDATA in linker.h.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>hal.linker.enable_alt_load_copy_exceptions</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>none</DestinationFile>
+                <Description>Causes the alt_load() facility to copy the .exceptions section. If true, this setting defines the macro ALT_LOAD_COPY_EXCEPTIONS in linker.h.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>hal.linker.enable_exception_stack</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>none</DestinationFile>
+                <Description>Enables use of a separate exception stack. If true, defines the macro ALT_EXCEPTION_STACK in linker.h, adds a memory region called exception_stack to linker.x, and provides the symbols __alt_exception_stack_pointer and __alt_exception_stack_limit in linker.x.</Description>
+                <Restrictions>The hal.linker.exception_stack_size and hal.linker.exception_stack_memory_region_name settings must also be valid. This setting must be false for MicroC/OS-II BSPs. The exception stack can be used to improve interrupt and other exception performance if the EIC is *not* used.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.linker.exception_stack_size</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1024</Value>
+                <DefaultValue>1024</DefaultValue>
+                <DestinationFile>none</DestinationFile>
+                <Description>Size of the exception stack in bytes.</Description>
+                <Restrictions>Only used if hal.linker.enable_exception_stack is true.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.linker.exception_stack_memory_region_name</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>sdram</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>none</DestinationFile>
+                <Description>Name of the existing memory region that will be divided up to create the 'exception_stack' memory region. The selected region name will be adjusted automatically when the BSP is generated to create the 'exception_stack' memory region.</Description>
+                <Restrictions>Only used if hal.linker.enable_exception_stack is true.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.linker.enable_interrupt_stack</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>none</DestinationFile>
+                <Description>Enables use of a separate interrupt stack. If true, defines the macro ALT_INTERRUPT_STACK in linker.h, adds a memory region called interrupt_stack to linker.x, and provides the symbols __alt_interrupt_stack_pointer and __alt_interrupt_stack_limit in linker.x.</Description>
+                <Restrictions>The hal.linker.interrupt_stack_size and hal.linker.interrupt_stack_memory_region_name settings must also be valid. This setting must be false for MicroC/OS-II BSPs. Only enable if the EIC is used exclusively. The exception stack can be used to improve interrupt and other exception performance if the EIC is *not* used.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.linker.interrupt_stack_size</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1024</Value>
+                <DefaultValue>1024</DefaultValue>
+                <DestinationFile>none</DestinationFile>
+                <Description>Size of the interrupt stack in bytes.</Description>
+                <Restrictions>Only used if hal.linker.enable_interrupt_stack is true.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.linker.interrupt_stack_memory_region_name</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>sdram</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>none</DestinationFile>
+                <Description>Name of the existing memory region that will be divided up to create the 'interrupt_stack' memory region. The selected region name will be adjusted automatically when the BSP is generated to create the 'interrupt_stack' memory region.</Description>
+                <Restrictions>Only used if hal.linker.enable_interrupt_stack is true.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.stdin</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>jtag_uart</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Slave descriptor of STDIN character-mode device. This setting is used by the ALT_STDIN family of defines in system.h.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.stdout</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>jtag_uart</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Slave descriptor of STDOUT character-mode device. This setting is used by the ALT_STDOUT family of defines in system.h.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.stderr</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>jtag_uart</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Slave descriptor of STDERR character-mode device. This setting is used by the ALT_STDERR family of defines in system.h.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.log_port</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Slave descriptor of debug logging character-mode device. If defined, it enables extra debug messages in the HAL source. This setting is used by the ALT_LOG_PORT family of defines in system.h.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.build_pre_process</SettingName>
+                <Identifier>BUILD_PRE_PROCESS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Command executed before BSP built.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ar_pre_process</SettingName>
+                <Identifier>AR_PRE_PROCESS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Command executed before archiver execution.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.bsp_cflags_defined_symbols</SettingName>
+                <Identifier>BSP_CFLAGS_DEFINED_SYMBOLS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>-DTSE_MY_SYSTEM</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Preprocessor macros to define. A macro definition in this setting has the same effect as a "#define" in source code. Adding "-DALT_DEBUG" to this setting has the same effect as "#define ALT_DEBUG" in a souce file. Adding "-DFOO=1" to this setting is equivalent to the macro "#define FOO 1" in a source file. Macros defined with this setting are applied to all .S, .c, and C++ files in the BSP. This setting defines the value of BSP_CFLAGS_DEFINED_SYMBOLS in the BSP Makefile.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ar_post_process</SettingName>
+                <Identifier>AR_POST_PROCESS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Command executed after archiver execution.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.as</SettingName>
+                <Identifier>AS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>nios2-elf-gcc</Value>
+                <DefaultValue>nios2-elf-gcc</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Assembler command. Note that CC is used for .S files.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.build_post_process</SettingName>
+                <Identifier>BUILD_POST_PROCESS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Command executed after BSP built.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.bsp_cflags_debug</SettingName>
+                <Identifier>BSP_CFLAGS_DEBUG</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>-g</Value>
+                <DefaultValue>-g</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>C/C++ compiler debug level. '-g' provides the default set of debug symbols typically required to debug a typical application. Omitting '-g' removes debug symbols from the ELF. This setting defines the value of BSP_CFLAGS_DEBUG in Makefile.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ar</SettingName>
+                <Identifier>AR</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>nios2-elf-ar</Value>
+                <DefaultValue>nios2-elf-ar</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Archiver command. Creates library files.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.rm</SettingName>
+                <Identifier>RM</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>rm -f</Value>
+                <DefaultValue>rm -f</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Command used to remove files during 'clean' target.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.cxx_pre_process</SettingName>
+                <Identifier>CXX_PRE_PROCESS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Command executed before each C++ file is compiled.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.bsp_cflags_warnings</SettingName>
+                <Identifier>BSP_CFLAGS_WARNINGS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>-Wall</Value>
+                <DefaultValue>-Wall</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>C/C++ compiler warning level. "-Wall" is commonly used.This setting defines the value of BSP_CFLAGS_WARNINGS in Makefile.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.bsp_arflags</SettingName>
+                <Identifier>BSP_ARFLAGS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>-src</Value>
+                <DefaultValue>-src</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Custom flags only passed to the archiver. This content of this variable is directly passed to the archiver rather than the more standard "ARFLAGS". The reason for this is that GNU Make assumes some default content in ARFLAGS. This setting defines the value of BSP_ARFLAGS in Makefile.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.bsp_cflags_optimization</SettingName>
+                <Identifier>BSP_CFLAGS_OPTIMIZATION</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>-O0</Value>
+                <DefaultValue>-O0</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>C/C++ compiler optimization level. "-O0" = no optimization,"-O2" = "normal" optimization, etc. "-O0" is recommended for code that you want to debug since compiler optimization can remove variables and produce non-sequential execution of code while debugging. This setting defines the value of BSP_CFLAGS_OPTIMIZATION in Makefile.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.as_post_process</SettingName>
+                <Identifier>AS_POST_PROCESS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Command executed after each assembly file is compiled.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.cc_pre_process</SettingName>
+                <Identifier>CC_PRE_PROCESS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Command executed before each .c/.S file is compiled.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.bsp_asflags</SettingName>
+                <Identifier>BSP_ASFLAGS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>-Wa,-gdwarf2</Value>
+                <DefaultValue>-Wa,-gdwarf2</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Custom flags only passed to the assembler. This setting defines the value of BSP_ASFLAGS in Makefile.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.as_pre_process</SettingName>
+                <Identifier>AS_PRE_PROCESS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Command executed before each assembly file is compiled.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.bsp_cflags_undefined_symbols</SettingName>
+                <Identifier>BSP_CFLAGS_UNDEFINED_SYMBOLS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Preprocessor macros to undefine. Undefined macros are similar to defined macros, but replicate the "#undef" directive in source code. To undefine the macro FOO use the syntax "-u FOO" in this setting. This is equivalent to "#undef FOO" in a source file. Note: the syntax differs from macro definition (there is a space, i.e. "-u FOO" versus "-DFOO"). Macros defined with this setting are applied to all .S, .c, and C++ files in the BSP. This setting defines the value of BSP_CFLAGS_UNDEFINED_SYMBOLS in the BSP Makefile.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.cc_post_process</SettingName>
+                <Identifier>CC_POST_PROCESS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Command executed after each .c/.S file is compiled.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.cxx_post_process</SettingName>
+                <Identifier>CXX_POST_PROCESS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Command executed before each C++ file is compiled.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.cc</SettingName>
+                <Identifier>CC</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>nios2-elf-gcc -xc</Value>
+                <DefaultValue>nios2-elf-gcc -xc</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>C compiler command.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.bsp_cxx_flags</SettingName>
+                <Identifier>BSP_CXXFLAGS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Custom flags only passed to the C++ compiler. This setting defines the value of BSP_CXXFLAGS in Makefile.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.bsp_inc_dirs</SettingName>
+                <Identifier>BSP_INC_DIRS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Space separated list of extra include directories to scan for header files. Directories are relative to the top-level BSP directory. The -I prefix's added by the makefile so don't add it here. This setting defines the value of BSP_INC_DIRS in Makefile.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.cxx</SettingName>
+                <Identifier>CXX</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>nios2-elf-gcc -xc++</Value>
+                <DefaultValue>nios2-elf-gcc -xc++</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>C++ compiler command.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.bsp_cflags_user_flags</SettingName>
+                <Identifier>BSP_CFLAGS_USER_FLAGS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>makefile_variable</DestinationFile>
+                <Description>Custom flags passed to the compiler when compiling C, C++, and .S files. This setting defines the value of BSP_CFLAGS_USER_FLAGS in Makefile.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.sopc_system_id</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query SOPC system for system ID. If true ignores export of 'SOPC_SYSID_FLAG += --id=&lt;sysid>' and 'ELF_PATCH_FLAG  += --id=&lt;sysid>' to public.mk.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.sopc_system_timestamp</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query SOPC system for system timestamp. If true ignores export of 'SOPC_SYSID_FLAG += --timestamp=&lt;timestamp>' and 'ELF_PATCH_FLAG  += --timestamp=&lt;timestamp>' to public.mk.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.sopc_system_base_address</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query SOPC system for system ID base address. If true ignores export of 'SOPC_SYSID_FLAG += --sidp=&lt;address>' and 'ELF_PATCH_FLAG  += --sidp=&lt;address>' to public.mk.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.sopc_simulation_enabled</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query if SOPC system has simulation enabled. If true ignores export of 'ELF_PATCH_FLAG  += --simulation_enabled' to public.mk.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.fpu_present</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query if SOPC system has FPU present. If true ignores export of 'ALT_CFLAGS += -mhard-float' to public.mk if FPU is found in the system. If true ignores export of 'ALT_CFLAGS += -mhard-soft' if FPU is not found in the system.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.hardware_multiplier_present</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query if SOPC system has multiplier present. If true ignores export of 'ALT_CFLAGS += -mno-hw-mul' to public.mk if no multiplier is found in the system. If true ignores export of 'ALT_CFLAGS += -mhw-mul' if multiplier is found in the system.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.hardware_mulx_present</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query if SOPC system has hardware mulx present. If true ignores export of 'ALT_CFLAGS += -mno-hw-mulx' to public.mk if no mulx is found in the system. If true ignores export of 'ALT_CFLAGS += -mhw-mulx' if mulx is found in the system.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.hardware_divide_present</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query if SOPC system has hardware divide present. If true ignores export of 'ALT_CFLAGS += -mno-hw-div' to public.mk if no division is found in system. If true ignores export of 'ALT_CFLAGS += -mhw-div' if division is found in the system.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.debug_core_present</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query if SOPC system has a debug core present. If true ignores export of 'CPU_HAS_DEBUG_CORE = 1' to public.mk if a debug core is found in the system. If true ignores export of 'CPU_HAS_DEBUG_CORE = 0' if no debug core is found in the system.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.big_endian</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query if SOPC system is big endian. If true ignores export of 'ALT_CFLAGS += -meb' to public.mk if big endian system.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.hardware_fp_cust_inst_divider_present</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query if SOPC system floating point custom instruction with a divider is present. If true ignores export of 'ALT_CFLAGS += -mcustom-fpu-cfg=60-2' and 'ALT_LDFLAGS += -mcustom-fpu-cfg=60-2' to public.mk if the custom instruction is found in the system.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.make.ignore_system_derived.hardware_fp_cust_inst_no_divider_present</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable BSP generation to query if SOPC system floating point custom instruction without a divider is present. If true ignores export of 'ALT_CFLAGS += -mcustom-fpu-cfg=60-1' and 'ALT_LDFLAGS += -mcustom-fpu-cfg=60-1' to public.mk if the custom instruction is found in the system.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_exit</SettingName>
+                <Identifier>ALT_NO_EXIT</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Add exit() support. This option increases code footprint if your "main()" routine does "return" or call "exit()". If false, adds -DALT_NO_EXIT to ALT_CPPFLAGS in public.mk, and reduces footprint</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_small_c_library</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Causes the small newlib (C library) to be used. This reduces code and data footprint at the expense of reduced functionality. Several newlib features are removed such as floating-point support in printf(), stdin input routines, and buffered I/O. The small C library is not compatible with Micrium MicroC/OS-II. If true, adds -msmallc to ALT_LDFLAGS in public.mk.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_clean_exit</SettingName>
+                <Identifier>ALT_NO_CLEAN_EXIT</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>When your application exits, close file descriptors, call C++ destructors, etc. Code footprint can be reduced by disabling clean exit. If disabled, adds -DALT_NO_CLEAN_EXIT to ALT_CPPFLAGS -D'exit(a)=_exit(a)' in public.mk.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_runtime_stack_checking</SettingName>
+                <Identifier>ALT_STACK_CHECK</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Turns on HAL runtime stack checking feature. Enabling this setting causes additional code to be placed into each subroutine call to generate an exception if a stack collision occurs with the heap or statically allocated data. If true, adds -DALT_STACK_CHECK and -fstack-check to ALT_CPPFLAGS in public.mk.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_gprof</SettingName>
+                <Identifier>ALT_PROVIDE_GMON</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Causes code to be compiled with gprof profiling enabled and the application ELF to be linked with the GPROF library. If true, adds -DALT_PROVIDE_GMON to ALT_CPPFLAGS and -pg to ALT_CFLAGS in public.mk.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_c_plus_plus</SettingName>
+                <Identifier>ALT_NO_C_PLUS_PLUS</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable support for a subset of the C++ language. This option increases code footprint by adding support for C++ constructors. Certain features, such as multiple inheritance and exceptions are not supported. If false, adds -DALT_NO_C_PLUS_PLUS to ALT_CPPFLAGS in public.mk, and reduces code footprint.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_reduced_device_drivers</SettingName>
+                <Identifier>ALT_USE_SMALL_DRIVERS</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Certain drivers are compiled with reduced functionality to reduce code footprint. Not all drivers observe this setting. The altera_avalon_uart and altera_avalon_jtag_uart drivers switch from interrupt-driven to polled operation. CAUTION: Several device drivers are disabled entirely. These include the altera_avalon_cfi_flash, altera_avalon_epcs_flash_controller, and altera_avalon_lcd_16207 drivers. This can result in certain API (HAL flash access routines) to fail. You can define a symbol provided by each driver to prevent it from being removed. If true, adds -DALT_USE_SMALL_DRIVERS to ALT_CPPFLAGS in public.mk.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_lightweight_device_driver_api</SettingName>
+                <Identifier>ALT_USE_DIRECT_DRIVERS</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enables lightweight device driver API. This reduces code and data footprint by removing the HAL layer that maps device names (e.g. /dev/uart0) to file descriptors. Instead, driver routines are called directly. The open(), close(), and lseek() routines will always fail if called. The read(), write(), fstat(), ioctl(), and isatty() routines only work for the stdio devices. If true, adds -DALT_USE_DIRECT_DRIVERS to ALT_CPPFLAGS in public.mk.</Description>
+                <Restrictions>The Altera Host and read-only ZIP file systems can't be used if hal.enable_lightweight_device_driver_api is true.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_mul_div_emulation</SettingName>
+                <Identifier>ALT_NO_INSTRUCTION_EMULATION</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Adds code to emulate multiply and divide instructions in case they are executed but aren't present in the CPU. Normally this isn't required because the compiler won't use multiply and divide instructions that aren't present in the CPU. If false, adds -DALT_NO_INSTRUCTION_EMULATION to ALT_CPPFLAGS in public.mk.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_sim_optimize</SettingName>
+                <Identifier>ALT_SIM_OPTIMIZE</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>The BSP is compiled with optimizations to speedup HDL simulation such as initializing the cache, clearing the .bss section, and skipping long delay loops. If true, adds -DALT_SIM_OPTIMIZE to ALT_CPPFLAGS in public.mk.</Description>
+                <Restrictions>When this setting is true, the BSP shouldn't be used to build applications that are expected to run real hardware.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>common</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.enable_sopc_sysid_check</SettingName>
+                <Identifier>NONE</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable SOPC Builder System ID. If a System ID SOPC Builder component is connected to the CPU associated with this BSP, it will be enabled in the creation of command-line arguments to download an ELF to the target. Otherwise, system ID and timestamp values are left out of public.mk for application Makefile "download-elf" target definition. With the system ID check disabled, the Nios II EDS tools will not automatically ensure that the application .elf file (and BSP it is linked against) corresponds to the hardware design on the target. If false, adds --accept-bad-sysid to SOPC_SYSID_FLAG in public.mk.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.custom_newlib_flags</SettingName>
+                <Identifier>CUSTOM_NEWLIB_FLAGS</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>none</Value>
+                <DefaultValue>none</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Build a custom version of newlib with the specified space-separated compiler flags.</Description>
+                <Restrictions>The custom newlib build will be placed in the &amp;lt;bsp root>/newlib directory, and will be used only for applications that utilize this BSP.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>hal.log_flags</SettingName>
+                <Identifier>ALT_LOG_FLAGS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>The value is assigned to ALT_LOG_FLAGS in the generated public.mk. See hal.log_port setting description. Values can be -1 through 3.</Description>
+                <Restrictions>hal.log_port must be set for this to be used.</Restrictions>
+                <Enabled>false</Enabled>
+                <Group>none</Group>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.os_max_tasks</SettingName>
+                <Identifier>OS_MAX_TASKS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>10</Value>
+                <DefaultValue>10</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Maximum number of tasks</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.os_lowest_prio</SettingName>
+                <Identifier>OS_LOWEST_PRIO</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>20</Value>
+                <DefaultValue>20</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Lowest assignable priority</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.os_thread_safe_newlib</SettingName>
+                <Identifier>OS_THREAD_SAFE_NEWLIB</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Thread safe C library</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.miscellaneous.os_arg_chk_en</SettingName>
+                <Identifier>OS_ARG_CHK_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable argument checking</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.miscellaneous.os_cpu_hooks_en</SettingName>
+                <Identifier>OS_CPU_HOOKS_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable uCOS-II hooks</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.miscellaneous.os_debug_en</SettingName>
+                <Identifier>OS_DEBUG_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable debug variables</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.miscellaneous.os_sched_lock_en</SettingName>
+                <Identifier>OS_SCHED_LOCK_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSSchedLock() and OSSchedUnlock()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.miscellaneous.os_task_stat_en</SettingName>
+                <Identifier>OS_TASK_STAT_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable statistics task</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.miscellaneous.os_task_stat_stk_chk_en</SettingName>
+                <Identifier>OS_TASK_STAT_STK_CHK_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Check task stacks from statistics task</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.miscellaneous.os_tick_step_en</SettingName>
+                <Identifier>OS_TICK_STEP_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable tick stepping feature for uCOS-View</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.miscellaneous.os_event_name_size</SettingName>
+                <Identifier>OS_EVENT_NAME_SIZE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>32</Value>
+                <DefaultValue>32</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Size of name of Event Control Block groups</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.miscellaneous.os_max_events</SettingName>
+                <Identifier>OS_MAX_EVENTS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>60</Value>
+                <DefaultValue>60</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Maximum number of event control blocks</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.miscellaneous.os_task_idle_stk_size</SettingName>
+                <Identifier>OS_TASK_IDLE_STK_SIZE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>512</Value>
+                <DefaultValue>512</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Idle task stack size</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.miscellaneous.os_task_stat_stk_size</SettingName>
+                <Identifier>OS_TASK_STAT_STK_SIZE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>512</Value>
+                <DefaultValue>512</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Statistics task stack size</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.task.os_task_change_prio_en</SettingName>
+                <Identifier>OS_TASK_CHANGE_PRIO_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSTaskChangePrio()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.task.os_task_create_en</SettingName>
+                <Identifier>OS_TASK_CREATE_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSTaskCreate()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.task.os_task_create_ext_en</SettingName>
+                <Identifier>OS_TASK_CREATE_EXT_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSTaskCreateExt()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.task.os_task_del_en</SettingName>
+                <Identifier>OS_TASK_DEL_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSTaskDel()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.task.os_task_name_size</SettingName>
+                <Identifier>OS_TASK_NAME_SIZE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>32</Value>
+                <DefaultValue>32</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Size of task name</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.task.os_task_profile_en</SettingName>
+                <Identifier>OS_TASK_PROFILE_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include data structure for run-time task profiling</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.task.os_task_query_en</SettingName>
+                <Identifier>OS_TASK_QUERY_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSTaskQuery</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.task.os_task_suspend_en</SettingName>
+                <Identifier>OS_TASK_SUSPEND_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSTaskSuspend() and OSTaskResume()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.task.os_task_sw_hook_en</SettingName>
+                <Identifier>OS_TASK_SW_HOOK_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSTaskSwHook()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.time.os_time_tick_hook_en</SettingName>
+                <Identifier>OS_TIME_TICK_HOOK_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSTimeTickHook()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.time.os_time_dly_resume_en</SettingName>
+                <Identifier>OS_TIME_DLY_RESUME_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSTimeDlyResume()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.time.os_time_dly_hmsm_en</SettingName>
+                <Identifier>OS_TIME_DLY_HMSM_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSTimeDlyHMSM()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.time.os_time_get_set_en</SettingName>
+                <Identifier>OS_TIME_GET_SET_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSTimeGet and OSTimeSet()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.os_flag_en</SettingName>
+                <Identifier>OS_FLAG_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable code for Event Flags. CAUTION: This is required by the HAL and many Altera device drivers.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.event_flag.os_flag_wait_clr_en</SettingName>
+                <Identifier>OS_FLAG_WAIT_CLR_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for Wait on Clear Event Flags. CAUTION: This is required by the HAL and many Altera device drivers.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.event_flag.os_flag_accept_en</SettingName>
+                <Identifier>OS_FLAG_ACCEPT_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSFlagAccept(). CAUTION: This is required by the HAL and many Altera device drivers.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.event_flag.os_flag_del_en</SettingName>
+                <Identifier>OS_FLAG_DEL_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSFlagDel(). CAUTION: This is required by the HAL and many Altera device drivers.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.event_flag.os_flag_query_en</SettingName>
+                <Identifier>OS_FLAG_QUERY_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSFlagQuery(). CAUTION: This is required by the HAL and many Altera device drivers.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.event_flag.os_flag_name_size</SettingName>
+                <Identifier>OS_FLAG_NAME_SIZE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>32</Value>
+                <DefaultValue>32</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Size of name of Event Flags group. CAUTION: This is required by the HAL and many Altera device drivers; use caution in reducing this value.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.event_flag.os_flags_nbits</SettingName>
+                <Identifier>OS_FLAGS_NBITS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>16</Value>
+                <DefaultValue>16</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Event Flag bits (8,16,32). CAUTION: This is required by the HAL and many Altera device drivers; use caution in changing this value.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.event_flag.os_max_flags</SettingName>
+                <Identifier>OS_MAX_FLAGS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>20</Value>
+                <DefaultValue>20</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Maximum number of Event Flags groups. CAUTION: This is required by the HAL and many Altera device drivers; use caution in reducing this value.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.os_mutex_en</SettingName>
+                <Identifier>OS_MUTEX_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable code for Mutex Semaphores</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.mutex.os_mutex_accept_en</SettingName>
+                <Identifier>OS_MUTEX_ACCEPT_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSMutexAccept()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.mutex.os_mutex_del_en</SettingName>
+                <Identifier>OS_MUTEX_DEL_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSMutexDel()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.mutex.os_mutex_query_en</SettingName>
+                <Identifier>OS_MUTEX_QUERY_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSMutexQuery</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.os_sem_en</SettingName>
+                <Identifier>OS_SEM_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable code for semaphores. CAUTION: This is required by the HAL and many Altera device drivers.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.semaphore.os_sem_accept_en</SettingName>
+                <Identifier>OS_SEM_ACCEPT_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSSemAccept(). CAUTION: This is required by the HAL and many Altera device drivers.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.semaphore.os_sem_set_en</SettingName>
+                <Identifier>OS_SEM_SET_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSSemSet(). CAUTION: This is required by the HAL and many Altera device drivers.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.semaphore.os_sem_del_en</SettingName>
+                <Identifier>OS_SEM_DEL_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSSemDel(). CAUTION: This is required by the HAL and many Altera device drivers.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.semaphore.os_sem_query_en</SettingName>
+                <Identifier>OS_SEM_QUERY_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSSemQuery(). CAUTION: This is required by the HAL and many Altera device drivers.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.os_mbox_en</SettingName>
+                <Identifier>OS_MBOX_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable code for mailboxes</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.mailbox.os_mbox_accept_en</SettingName>
+                <Identifier>OS_MBOX_ACCEPT_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSMboxAccept()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.mailbox.os_mbox_del_en</SettingName>
+                <Identifier>OS_MBOX_DEL_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSMboxDel()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.mailbox.os_mbox_post_en</SettingName>
+                <Identifier>OS_MBOX_POST_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSMboxPost()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.mailbox.os_mbox_post_opt_en</SettingName>
+                <Identifier>OS_MBOX_POST_OPT_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSMboxPostOpt()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.mailbox.os_mbox_query_en</SettingName>
+                <Identifier>OS_MBOX_QUERY_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSMboxQuery()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.os_q_en</SettingName>
+                <Identifier>OS_Q_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable code for Queues</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.queue.os_q_accept_en</SettingName>
+                <Identifier>OS_Q_ACCEPT_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSQAccept()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.queue.os_q_del_en</SettingName>
+                <Identifier>OS_Q_DEL_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSQDel()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.queue.os_q_flush_en</SettingName>
+                <Identifier>OS_Q_FLUSH_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSQFlush()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.queue.os_q_post_en</SettingName>
+                <Identifier>OS_Q_POST_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code of OSQFlush()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.queue.os_q_post_front_en</SettingName>
+                <Identifier>OS_Q_POST_FRONT_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSQPostFront()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.queue.os_q_post_opt_en</SettingName>
+                <Identifier>OS_Q_POST_OPT_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSQPostOpt()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.queue.os_q_query_en</SettingName>
+                <Identifier>OS_Q_QUERY_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSQQuery()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.queue.os_max_qs</SettingName>
+                <Identifier>OS_MAX_QS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>20</Value>
+                <DefaultValue>20</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Maximum number of Queue Control Blocks</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.os_mem_en</SettingName>
+                <Identifier>OS_MEM_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable code for memory management</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.memory.os_mem_query_en</SettingName>
+                <Identifier>OS_MEM_QUERY_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Include code for OSMemQuery()</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.memory.os_mem_name_size</SettingName>
+                <Identifier>OS_MEM_NAME_SIZE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>32</Value>
+                <DefaultValue>32</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Size of memory partition name</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.memory.os_max_mem_part</SettingName>
+                <Identifier>OS_MAX_MEM_PART</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>60</Value>
+                <DefaultValue>60</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Maximum number of memory partitions</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.os_tmr_en</SettingName>
+                <Identifier>OS_TMR_EN</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable code for timers</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.timer.os_task_tmr_stk_size</SettingName>
+                <Identifier>OS_TASK_TMR_STK_SIZE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>512</Value>
+                <DefaultValue>512</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Stack size for timer task</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.timer.os_task_tmr_prio</SettingName>
+                <Identifier>OS_TASK_TMR_PRIO</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Priority of timer task (0=highest)</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.timer.os_tmr_cfg_max</SettingName>
+                <Identifier>OS_TMR_CFG_MAX</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>16</Value>
+                <DefaultValue>16</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Maximum number of timers</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.timer.os_tmr_cfg_name_size</SettingName>
+                <Identifier>OS_TMR_CFG_NAME_SIZE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>16</Value>
+                <DefaultValue>16</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Size of timer name</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.timer.os_tmr_cfg_ticks_per_sec</SettingName>
+                <Identifier>OS_TMR_CFG_TICKS_PER_SEC</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>10</Value>
+                <DefaultValue>10</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Rate at which timer management task runs (Hz)</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>ucosii.timer.os_tmr_cfg_wheel_size</SettingName>
+                <Identifier>OS_TMR_CFG_WHEEL_SIZE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>2</Value>
+                <DefaultValue>2</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Size of timer wheel (number of spokes)</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_iniche.iniche_default_if</SettingName>
+                <Identifier>INICHE_DEFAULT_IF</Identifier>
+                <Type>QuotedString</Type>
+                <Value>NOT_USED</Value>
+                <DefaultValue>NOT_USED</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Deprecated setting: Default MAC interface. This setting was formerly used by Altera networking example applications. It need not be assigned a valid value for the use of networking example designs in Nios II 8.0. If you are using this setting in a project, it is recomended that you remove the dependency. This setting may be removed in a future release.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_iniche.enable_dhcp_client</SettingName>
+                <Identifier>DHCP_CLIENT</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>true</Value>
+                <DefaultValue>true</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Use DHCP to automatically assign IP address</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_iniche.enable_ip_fragments</SettingName>
+                <Identifier>IP_FRAGMENTS</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>true</Value>
+                <DefaultValue>true</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Reassemble IP packet fragments</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_iniche.enable_include_tcp</SettingName>
+                <Identifier>INCLUDE_TCP</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>true</Value>
+                <DefaultValue>true</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable TCP protocol</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_iniche.enable_tcp_zerocopy</SettingName>
+                <Identifier>TCP_ZEROCOPY</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>false</Value>
+                <DefaultValue>false</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Use TCP zero-copy</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_iniche.enable_net_stats</SettingName>
+                <Identifier>NET_STATS</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>false</Value>
+                <DefaultValue>false</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enable statistics</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_avalon_uart_driver.enable_small_driver</SettingName>
+                <Identifier>ALTERA_AVALON_UART_SMALL</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>false</Value>
+                <DefaultValue>false</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Small-footprint (polled mode) driver</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_avalon_uart_driver.enable_ioctl</SettingName>
+                <Identifier>ALTERA_AVALON_UART_USE_IOCTL</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>false</Value>
+                <DefaultValue>false</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable driver ioctl() support. This feature is not compatible with the 'small' driver; ioctl() support will not be compiled if either the UART 'enable_small_driver' or HAL 'enable_reduced_device_drivers' settings are enabled.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_avalon_jtag_uart_driver.enable_small_driver</SettingName>
+                <Identifier>ALTERA_AVALON_JTAG_UART_SMALL</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>false</Value>
+                <DefaultValue>false</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Small-footprint (polled mode) driver</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_avalon_jtag_uart_driver.enable_jtag_uart_ignore_fifo_full_error</SettingName>
+                <Identifier>ALTERA_AVALON_JTAG_UART_IGNORE_FIFO_FULL_ERROR</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>false</Value>
+                <DefaultValue>false</DefaultValue>
+                <DestinationFile>public_mk_define</DestinationFile>
+                <Description>Enable JTAG UART driver to recover when host is inactive causing buffer to full without returning error. Printf will not fail with this recovery.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>false</Enabled>
+                <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq0_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ0_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>63</Value>
+                <DefaultValue>63</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ0 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq0_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ0_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ0 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq0_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ0_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ0 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq10_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ10_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>53</Value>
+                <DefaultValue>53</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ10 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq10_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ10_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ10 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq10_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ10_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ10 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq11_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ11_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>52</Value>
+                <DefaultValue>52</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ11 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq11_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ11_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ11 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq11_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ11_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ11 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq12_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ12_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>51</Value>
+                <DefaultValue>51</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ12 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq12_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ12_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ12 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq12_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ12_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ12 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq13_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ13_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>50</Value>
+                <DefaultValue>50</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ13 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq13_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ13_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ13 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq13_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ13_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ13 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq14_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ14_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>49</Value>
+                <DefaultValue>49</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ14 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq14_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ14_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ14 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq14_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ14_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ14 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq15_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ15_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>48</Value>
+                <DefaultValue>48</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ15 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq15_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ15_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ15 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq15_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ15_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ15 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq16_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ16_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>47</Value>
+                <DefaultValue>47</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ16 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq16_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ16_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ16 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq16_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ16_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ16 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq17_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ17_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>46</Value>
+                <DefaultValue>46</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ17 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq17_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ17_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ17 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq17_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ17_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ17 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq18_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ18_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>45</Value>
+                <DefaultValue>45</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ18 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq18_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ18_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ18 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq18_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ18_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ18 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq19_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ19_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>44</Value>
+                <DefaultValue>44</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ19 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq19_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ19_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ19 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq19_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ19_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ19 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq1_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ1_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>62</Value>
+                <DefaultValue>62</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ1 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq1_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ1_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ1 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq1_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ1_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ1 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq20_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ20_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>43</Value>
+                <DefaultValue>43</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ20 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq20_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ20_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ20 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq20_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ20_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ20 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq21_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ21_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>42</Value>
+                <DefaultValue>42</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ21 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq21_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ21_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ21 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq21_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ21_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ21 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq22_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ22_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>41</Value>
+                <DefaultValue>41</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ22 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq22_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ22_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ22 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq22_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ22_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ22 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq23_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ23_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>40</Value>
+                <DefaultValue>40</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ23 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq23_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ23_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ23 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq23_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ23_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ23 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq24_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ24_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>39</Value>
+                <DefaultValue>39</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ24 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq24_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ24_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ24 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq24_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ24_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ24 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq25_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ25_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>38</Value>
+                <DefaultValue>38</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ25 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq25_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ25_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ25 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq25_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ25_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ25 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq26_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ26_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>37</Value>
+                <DefaultValue>37</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ26 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq26_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ26_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ26 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq26_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ26_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ26 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq27_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ27_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>36</Value>
+                <DefaultValue>36</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ27 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq27_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ27_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ27 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq27_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ27_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ27 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq28_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ28_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>35</Value>
+                <DefaultValue>35</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ28 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq28_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ28_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ28 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq28_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ28_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ28 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq29_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ29_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>34</Value>
+                <DefaultValue>34</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ29 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq29_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ29_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ29 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq29_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ29_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ29 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq2_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ2_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>61</Value>
+                <DefaultValue>61</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ2 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq2_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ2_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ2 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq2_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ2_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ2 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq30_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ30_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>33</Value>
+                <DefaultValue>33</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ30 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq30_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ30_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ30 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq30_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ30_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ30 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq31_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ31_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>32</Value>
+                <DefaultValue>32</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ31 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq31_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ31_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ31 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq31_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ31_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ31 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq3_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ3_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>60</Value>
+                <DefaultValue>60</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ3 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq3_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ3_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ3 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq3_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ3_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ3 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq4_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ4_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>59</Value>
+                <DefaultValue>59</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ4 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq4_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ4_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ4 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq4_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ4_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ4 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq5_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ5_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>58</Value>
+                <DefaultValue>58</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ5 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq5_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ5_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ5 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq5_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ5_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ5 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq6_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ6_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>57</Value>
+                <DefaultValue>57</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ6 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq6_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ6_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ6 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq6_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ6_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ6 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq7_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ7_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>56</Value>
+                <DefaultValue>56</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ7 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq7_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ7_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ7 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq7_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ7_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ7 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq8_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ8_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>55</Value>
+                <DefaultValue>55</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ8 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq8_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ8_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ8 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq8_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ8_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ8 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq9_ril</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ9_RIL</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>54</Value>
+                <DefaultValue>54</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested interrupt level (RIL) value for IRQ9 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq9_rnmi</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ9_RNMI</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested non-maskable interrupt (RNMI) value for IRQ9 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.irq9_rrs</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_VIC_0_IRQ9_RRS</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Requested register set (RRS) value for IRQ9 of 'vic_0'</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.VIC_0.vec_size</SettingName>
+                <Identifier>VIC_0_VEC_SIZE</Identifier>
+                <Type>DecimalNumber</Type>
+                <Value>16</Value>
+                <DefaultValue>16</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>The number of bytes in each vector table entry. Supported values are 16, 32, 64, 128, 256 and 512.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.enable_preemption</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_ISR_PREEMPTION_ENABLED</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>1</Value>
+                <DefaultValue>1</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enables global interrupt preemption. If true, defines the macro ALTERA_VIC_DRIVER_ISR_PREEMPTION_ENABLED in system.h</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.enable_preemption_into_new_register_set</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_PREEMPTION_INTO_NEW_REGISTER_SET_ENABLED</Identifier>
+                <Type>BooleanDefineOnly</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enables preemption into new register set. If true, defines the macro ALTERA_VIC_DRIVER_PREEMPTION_INTO_NEW_REGISTER_SET_ENABLED in system.h</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.enable_preemption_rs_1</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_ENABLE_PREEMPTION_RS_1</Identifier>
+                <Type>Boolean</Type>
+                <Value>0</Value>
+                <DefaultValue>0</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Enables preemption for register set 1.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <Setting>
+                <SettingName>altera_vic_driver.linker_section</SettingName>
+                <Identifier>ALTERA_VIC_DRIVER_LINKER_SECTION</Identifier>
+                <Type>UnquotedString</Type>
+                <Value>.text</Value>
+                <DefaultValue>.text</DefaultValue>
+                <DestinationFile>system_h_define</DestinationFile>
+                <Description>Linker section for vector table(s) and funnel code. This memory section must connect to data and instruction master of the CPU.</Description>
+                <Restrictions>none</Restrictions>
+                <Enabled>true</Enabled>
+                <Group>module_setting</Group>
+        </Setting>
+        <MemoryMap>
+                <slaveDescriptor>sdram</slaveDescriptor>
+                <addressRange>0x00000000 - 0x01FFFFFF</addressRange>
+                <addressSpan>33554432</addressSpan>
+                <attributes>memory</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>tse_mac</slaveDescriptor>
+                <addressRange>0x02000800 - 0x02000BFF</addressRange>
+                <addressSpan>1024</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sgdma_tx</slaveDescriptor>
+                <addressRange>0x02000C00 - 0x02000C3F</addressRange>
+                <addressSpan>64</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sgdma_rx</slaveDescriptor>
+                <addressRange>0x02000C40 - 0x02000C7F</addressRange>
+                <addressSpan>64</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>uart_0</slaveDescriptor>
+                <addressRange>0x02000D00 - 0x02000D1F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>printable</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>uart_1</slaveDescriptor>
+                <addressRange>0x02000D40 - 0x02000D5F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>printable</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>descriptor_memory</slaveDescriptor>
+                <addressRange>0x02001000 - 0x02001FFF</addressRange>
+                <addressSpan>4096</addressSpan>
+                <attributes>memory</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>ext_flash</slaveDescriptor>
+                <addressRange>0x04000000 - 0x047FFFFF</addressRange>
+                <addressSpan>8388608</addressSpan>
+                <attributes>flash, memory, non-volatile</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sram</slaveDescriptor>
+                <addressRange>0x05000000 - 0x051FFFFF</addressRange>
+                <addressSpan>2097152</addressSpan>
+                <attributes>memory</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>pll</slaveDescriptor>
+                <addressRange>0x08000140 - 0x0800014F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sys_clk_timer</slaveDescriptor>
+                <addressRange>0x08000160 - 0x0800017F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>jtag_uart</slaveDescriptor>
+                <addressRange>0x080001A0 - 0x080001A7</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes>printable</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sysid</slaveDescriptor>
+                <addressRange>0x080001A8 - 0x080001AF</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sysver_0</slaveDescriptor>
+                <addressRange>0x080001C0 - 0x080001DF</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_0</slaveDescriptor>
+                <addressRange>0x08000200 - 0x0800021F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_1</slaveDescriptor>
+                <addressRange>0x08000220 - 0x0800023F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_2</slaveDescriptor>
+                <addressRange>0x08000240 - 0x0800025F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_3</slaveDescriptor>
+                <addressRange>0x08000260 - 0x0800027F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_4</slaveDescriptor>
+                <addressRange>0x08000280 - 0x0800029F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_5</slaveDescriptor>
+                <addressRange>0x080002A0 - 0x080002BF</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_6</slaveDescriptor>
+                <addressRange>0x080002C0 - 0x080002DF</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_7</slaveDescriptor>
+                <addressRange>0x080002E0 - 0x080002FF</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_8</slaveDescriptor>
+                <addressRange>0x08000300 - 0x0800031F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_9</slaveDescriptor>
+                <addressRange>0x08000320 - 0x0800033F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_10</slaveDescriptor>
+                <addressRange>0x08000340 - 0x0800035F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_11</slaveDescriptor>
+                <addressRange>0x08000360 - 0x0800037F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_12</slaveDescriptor>
+                <addressRange>0x08000380 - 0x0800039F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_13</slaveDescriptor>
+                <addressRange>0x080003A0 - 0x080003BF</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_14</slaveDescriptor>
+                <addressRange>0x080003C0 - 0x080003DF</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>timer_15</slaveDescriptor>
+                <addressRange>0x080003E0 - 0x080003FF</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>timer</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>key</slaveDescriptor>
+                <addressRange>0x08000400 - 0x0800040F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sw</slaveDescriptor>
+                <addressRange>0x08000410 - 0x0800041F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>ledg</slaveDescriptor>
+                <addressRange>0x08000420 - 0x0800042F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>ledr</slaveDescriptor>
+                <addressRange>0x08000430 - 0x0800043F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>rs232</slaveDescriptor>
+                <addressRange>0x08000440 - 0x0800045F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes>printable</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>i2c_scl</slaveDescriptor>
+                <addressRange>0x08000460 - 0x0800046F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>i2c_sda</slaveDescriptor>
+                <addressRange>0x08000470 - 0x0800047F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>eep_i2c_scl</slaveDescriptor>
+                <addressRange>0x08000480 - 0x0800048F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>eep_i2c_sda</slaveDescriptor>
+                <addressRange>0x08000490 - 0x0800049F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>lcd</slaveDescriptor>
+                <addressRange>0x080004A0 - 0x080004AF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes>printable</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>ir</slaveDescriptor>
+                <addressRange>0x080004B0 - 0x080004BF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sd_clk</slaveDescriptor>
+                <addressRange>0x080004C0 - 0x080004CF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sd_cmd</slaveDescriptor>
+                <addressRange>0x080004D0 - 0x080004DF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sd_dat</slaveDescriptor>
+                <addressRange>0x080004E0 - 0x080004EF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sd_wp_n</slaveDescriptor>
+                <addressRange>0x080004F0 - 0x080004FF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>seg7</slaveDescriptor>
+                <addressRange>0x08000500 - 0x0800051F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sma_in</slaveDescriptor>
+                <addressRange>0x08001000 - 0x0800100F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>sma_out</slaveDescriptor>
+                <addressRange>0x08001010 - 0x0800101F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>audio</slaveDescriptor>
+                <addressRange>0x08001020 - 0x0800103F</addressRange>
+                <addressSpan>32</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>usb_hc</slaveDescriptor>
+                <addressRange>0x08001040 - 0x08001047</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>usb_dc</slaveDescriptor>
+                <addressRange>0x08001050 - 0x08001057</addressRange>
+                <addressSpan>8</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>can_top_0</slaveDescriptor>
+                <addressRange>0x08020000 - 0x080203FF</addressRange>
+                <addressSpan>1024</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>onchip_memory2</slaveDescriptor>
+                <addressRange>0x0A000000 - 0x0A01FFFF</addressRange>
+                <addressSpan>131072</addressSpan>
+                <attributes>memory</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>vic_0</slaveDescriptor>
+                <addressRange>0x0F000000 - 0x0F0003FF</addressRange>
+                <addressSpan>1024</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <LinkerSection>
+                <sectionName>.text</sectionName>
+                <regionName>sdram</regionName>
+        </LinkerSection>
+        <LinkerSection>
+                <sectionName>.rodata</sectionName>
+                <regionName>sdram</regionName>
+        </LinkerSection>
+        <LinkerSection>
+                <sectionName>.rwdata</sectionName>
+                <regionName>sdram</regionName>
+        </LinkerSection>
+        <LinkerSection>
+                <sectionName>.bss</sectionName>
+                <regionName>sdram</regionName>
+        </LinkerSection>
+        <LinkerSection>
+                <sectionName>.heap</sectionName>
+                <regionName>sdram</regionName>
+        </LinkerSection>
+        <LinkerSection>
+                <sectionName>.stack</sectionName>
+                <regionName>sdram</regionName>
+        </LinkerSection>
+        <SoftwarePackageInfo>
+                <name>altera_iniche</name>
+                <version>default</version>
+        </SoftwarePackageInfo>
+</sch:Settings>
