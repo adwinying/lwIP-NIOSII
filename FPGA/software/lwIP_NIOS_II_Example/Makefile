@@ -203,6 +203,8 @@ C_SRCS += lwip/src/netif/ppp/ppp_oe.c
 C_SRCS += lwip/src/netif/ppp/randm.c
 C_SRCS += lwip/src/core/def.c
 C_SRCS += lwip/src/core/timers.c
+C_SRCS += histogram.c
+C_SRCS += echo.c
 CXX_SRCS :=
 ASM_SRCS :=
 

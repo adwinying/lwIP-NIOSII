@@ -28,6 +28,9 @@
 #include "netif/etharp.h"
 #include "alteraTseEthernetif.h"
 
+#include "histogram.h"
+#include "echo.h"
+
 #define mSdelay(x) usleep(x*1000)
 
 //  Define USE_DHCP to 1 to use DHCP.  Otherwise a static IP must be defined
@@ -41,7 +44,8 @@ struct ip_addr lwipStaticIp;
 #endif
 
 //  Define BUILD_HTTPD to 1 to build the httpserver_raw contrib example
-#define BUILD_HTTPD 1
+#define BUILD_HTTPD 0
+#define UDP_ECHO 1
 
 //  Alarm & timer variables - provides a 250mS counter
 void        lwipProcessTimers(void);
@@ -64,6 +68,21 @@ int main()
 {
 static struct ip_addr   ip_zero = { 0 };
 void httpd_init(void);
+void udpecho_init(void);
+
+// Enable/disable this in echo.h
+#if TEST_HISTOGRAM
+	// Start altera timestamp
+	//alt_timestamp_start();
+    // Get timestamp freq
+    timestamp_freq = alt_timestamp_freq();
+    // Init histogram
+    uint32      histarea[1001];
+	int i;
+    for (i = 1; i <= TNUM_HIST; i++){
+        init_hist(i, 1000, histarea);
+    }
+#endif /* TEST_HISTOGRAM */
 
     printf("Running...\n");
     lwip250mStimer = 0;
@@ -124,6 +143,7 @@ void httpd_init(void);
 #if BUILD_HTTPD
     httpd_init();
 #endif
+    udpecho_init();
     //  This is the main loop for lwIP - other processing can be done by calling application functions.
     for(;;)
         {

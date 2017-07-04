@@ -22,7 +22,8 @@ obj/default/main.o: main.c ../lwIP_NIOS_II_Example_bsp/system.h \
  lwip/src/include/ipv4/lwip/icmp.h lwip/src/include/lwip/tcp_impl.h \
  lwip/src/include/lwip/stats.h lwip/src/include/lwip/memp.h \
  lwip/src/include/lwip/memp_std.h lwip/src/include/ipv4/lwip/ip_frag.h \
- lwip/src/include/netif/etharp.h drivers/alteraTseEthernetif.h
+ lwip/src/include/netif/etharp.h drivers/alteraTseEthernetif.h \
+ histogram.h echo.h
 
 ../lwIP_NIOS_II_Example_bsp/system.h:
 
@@ -99,3 +100,7 @@ lwip/src/include/ipv4/lwip/ip_frag.h:
 lwip/src/include/netif/etharp.h:
 
 drivers/alteraTseEthernetif.h:
+
+histogram.h:
+
+echo.h:

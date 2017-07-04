@@ -9,7 +9,10 @@ obj/default/lwip/src/netif/etharp.o: lwip/src/netif/etharp.c \
  lwip/src/include/lwip/mem.h lwip/src/include/lwip/memp.h \
  lwip/src/include/lwip/memp_std.h lwip/src/include/lwip/snmp.h \
  lwip/src/include/lwip/dhcp.h lwip/src/include/lwip/udp.h \
- lwip/src/include/ipv4/lwip/autoip.h lwip/src/include/netif/etharp.h
+ lwip/src/include/ipv4/lwip/autoip.h lwip/src/include/netif/etharp.h \
+ lwip/src/netif/../../../histogram.h \
+ ../lwIP_NIOS_II_Example_bsp/HAL/inc/alt_types.h \
+ lwip/src/netif/../../../echo.h
 
 lwip/src/include/lwip/opt.h:
 
@@ -54,3 +57,9 @@ lwip/src/include/lwip/udp.h:
 lwip/src/include/ipv4/lwip/autoip.h:
 
 lwip/src/include/netif/etharp.h:
+
+lwip/src/netif/../../../histogram.h:
+
+../lwIP_NIOS_II_Example_bsp/HAL/inc/alt_types.h:
+
+lwip/src/netif/../../../echo.h:

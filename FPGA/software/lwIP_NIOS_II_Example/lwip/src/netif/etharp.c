@@ -1273,9 +1273,19 @@ etharp_request(struct netif *netif, ip_addr_t *ipaddr)
  * @param p the recevied packet, p->payload pointing to the ethernet header
  * @param netif the network interface on which the packet was received
  */
+#include "../../../histogram.h"
+#include "../../../echo.h"
 err_t
 ethernet_input(struct pbuf *p, struct netif *netif)
 {
+#if TEST_HISTOGRAM
+//#if 0
+  if (histid <= TNUM_HIST && measuring_flg == FALSE) {
+      //printf("[histid: %d] Histogram measuring starting...\n", histid);
+      begin_measure(histid);
+      measuring_flg = TRUE;
+  }
+#endif
   struct eth_hdr* ethhdr;
   u16_t type;
 #if LWIP_ARP || ETHARP_SUPPORT_VLAN

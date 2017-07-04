@@ -4,7 +4,7 @@
  * Machine generated for CPU 'cpu' in SOPC Builder design 'DE2_115_SOPC'
  * SOPC Builder design path: C:/cygwin/home/adwinying/FreeLwIP-Nios-II/FPGA/DE2_115_SOPC.sopcinfo
  *
- * Generated: Mon Jun 26 09:48:14 JST 2017
+ * Generated: Sun Jul 02 19:56:53 JST 2017
  */
 
 /*
@@ -455,7 +455,7 @@
 #define ALT_INCLUDE_INSTRUCTION_RELATED_EXCEPTION_API
 #define ALT_MAX_FD 32
 #define ALT_SYS_CLK SYS_CLK_TIMER
-#define ALT_TIMESTAMP_CLK none
+#define ALT_TIMESTAMP_CLK TIMER_0
 
 
 /*
@@ -1170,7 +1170,7 @@
 #define SYSID_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_NAME "/dev/sysid"
 #define SYSID_SPAN 8
-#define SYSID_TIMESTAMP 1498437234
+#define SYSID_TIMESTAMP 1498439491
 #define SYSID_TYPE "altera_avalon_sysid_qsys"
 
 
@@ -1626,7 +1626,7 @@
 #define TSE_MAC_PCS_SGMII 0
 #define TSE_MAC_RECEIVE_FIFO_DEPTH 2048
 #define TSE_MAC_REGISTER_SHARED 0
-#define TSE_MAC_RGMII 0
+#define TSE_MAC_RGMII 1
 #define TSE_MAC_SPAN 1024
 #define TSE_MAC_TRANSMIT_FIFO_DEPTH 2048
 #define TSE_MAC_TYPE "altera_eth_tse"
