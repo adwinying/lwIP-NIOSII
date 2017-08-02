@@ -390,7 +390,6 @@ int tse_sgdmaRx_isr(void * context, u_long intnum)
  * @param  data_bytes - number of bytes of the data payload to be sent to the MAC
  * @return SUCCESS if success, else a negative value
  */
-
 err_t tse_mac_raw_send(struct netif *netif, struct pbuf *pkt)
 {
    int                tx_length;
@@ -404,7 +403,6 @@ err_t tse_mac_raw_send(struct netif *netif, struct pbuf *pkt)
 
    /* Intermediate buffers used for temporary copy of frames that cannot be directrly DMA'ed*/
    char buf2[1560];
-
    ethernetif = netif->state;
    tse_ptr = ethernetif->tse_info;
    mi = &tse_ptr->mi;
@@ -436,11 +434,13 @@ err_t tse_mac_raw_send(struct netif *netif, struct pbuf *pkt)
            p == pkt,                                // generate sop
            p->next == NULL,                         // generate endofpacket signal
            0);                                      // atlantic channel (don't know/don't care: set to 0)
-                  
+
       tx_length = tse_mac_sTxWrite(mi,&tse_ptr->desc[ALTERA_TSE_FIRST_TX_SGDMA_DESC_OFST]);
+
       ethernetif->bytes_sent += tx_length;
       }
    LINK_STATS_INC(link.xmit);
+
    return ERR_OK;
 }
 

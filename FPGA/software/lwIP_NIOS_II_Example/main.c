@@ -72,15 +72,16 @@ void udpecho_init(void);
 
 // Enable/disable this in echo.h
 #if TEST_HISTOGRAM
-	// Start altera timestamp
-	//alt_timestamp_start();
     // Get timestamp freq
     timestamp_freq = alt_timestamp_freq();
     // Init histogram
-    uint32      histarea[1001];
 	int i;
     for (i = 1; i <= TNUM_HIST; i++){
-        init_hist(i, 1000, histarea);
+        if(init_hist(i, MAX_HIST_VAL, histarea)){
+        	//printf("%d OK\n", i);
+        } else {
+        	printf("%d ERR\n", i);
+        }
     }
 #endif /* TEST_HISTOGRAM */
 

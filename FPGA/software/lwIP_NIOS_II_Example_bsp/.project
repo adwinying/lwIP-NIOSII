@@ -3,6 +3,7 @@
 	<name>lwIP_NIOS_II_Example_bsp</name>
 	<comment></comment>
 	<projects>
+		<project>lwIP_NIOS_II_Example</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

@@ -37,11 +37,14 @@
 
 #if TEST_HISTOGRAM
 #define TNUM_HIST 10000	// Number of data to measure
+#define MAX_HIST_VAL 1000
+
 // Expose these variables
 extern alt_u32 		timestamp_freq;		
-extern uint32   	histarea[1001];		
+extern uint32   	histarea[MAX_HIST_VAL + 1];
 extern ObjectIDType histid;
 extern boolean      measuring_flg; 
+extern boolean		printed_flg;
 #endif
 
 void udpecho_init(void);

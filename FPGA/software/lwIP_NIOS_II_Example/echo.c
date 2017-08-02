@@ -39,7 +39,7 @@
  * Histogram variables
  */
 #if TEST_HISTOGRAM
-uint32          histarea[1001] = { 0 };
+uint32          histarea[MAX_HIST_VAL + 1] = { 0 };
 ObjectIDType    histid = 1;
 boolean         measuring_flg = FALSE;
 boolean         printed_flg = FALSE;
@@ -48,10 +48,10 @@ boolean         printed_flg = FALSE;
 void udpecho_recv(void *arg, struct udp_pcb *pcb, struct pbuf *p, struct 
 ip_addr *addr, u16_t port)
 {
-//#if TEST_HISTOGRAM
 #if 0
+//#if TEST_HISTOGRAM
     if (histid <= TNUM_HIST && measuring_flg == FALSE) {
-        printf("[histid: %d] Histogram measuring starting...\n", histid);
+        //printf("[histid: %d] Histogram measuring starting...\n", histid);
         begin_measure(histid);
         measuring_flg = TRUE;
     }
@@ -64,6 +64,7 @@ ip_addr *addr, u16_t port)
         pbuf_free(p);
     }
 
+//#if 0
 #if TEST_HISTOGRAM
     // End histogram measure
     if (histid <= TNUM_HIST && measuring_flg == TRUE) {
@@ -71,7 +72,7 @@ ip_addr *addr, u16_t port)
         if (end_measure(histid++)) {
             //printf("%d OK\n", histid);
         } else {
-            //printf("%d ERR\n", histid);
+            printf("%d ERR\n", histid);
         }
         measuring_flg = FALSE;
     }
@@ -83,6 +84,7 @@ ip_addr *addr, u16_t port)
         print_hist(TNUM_HIST);
     }
 #endif
+
 }
 
 
